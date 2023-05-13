@@ -5,6 +5,11 @@ if (isset($_GET['id']) && isset($_GET['page']) ){
   $page=$_GET['id'];
   switch ($page){
       case 1:
-          $query "d"
+          $query ="DELETE FROM class WHERE class_id=" .$id;
+          $del=$db->prepare($query);
+          $del->execute();
+          header("location:index.php");
+          break;
+          
   }
 }

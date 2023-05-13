@@ -51,7 +51,7 @@ if (isset($_POST['submit1'])) {
                 $query = "SELECT * FROM class";
                 $result = $db->prepare($query);
                 $result->execute();
-                while ($row = $result->fetch(PDO::FETCH_ASSOC)){
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
  <tr>
   <td>" . $row['class_id'] . "</td> 
@@ -63,7 +63,8 @@ if (isset($_POST['submit1'])) {
                 }
                 ?>
             </table>
-        </div> <div id="row1_col2">
+        </div>
+        <div id="row1_col2">
             <form action="" method="post">
                 <fieldset>
                     <legend>Student</legend>
@@ -92,17 +93,17 @@ if (isset($_POST['submit1'])) {
                 </tr>
                 <?php
                 include "connection.php";
-                $query="SELECT * FROM student";
-                $result=$db->prepare($query);
+                $query = "SELECT * FROM student";
+                $result = $db->prepare($query);
                 $result->execute();
-                while ($row=$result->fetch(PDO::FETCH_ASSOC)){
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
                     <tr>
-    <td>" .$row['class_id']. "</td>
-    <td>" .$row['stud_id']. "</td>
-    <td>" .$row['name']. "</td>
-    <td>" .$row['family']. "</td>
-    <td>" .$row['ave']. "</td>
+    <td>" . $row['class_id'] . "</td>
+    <td>" . $row['stud_id'] . "</td>
+    <td>" . $row['name'] . "</td>
+    <td>" . $row['family'] . "</td>
+    <td>" . $row['ave'] . "</td>
     <td><a href='delete.php?id=" . $row['stud_id'] . "&&page=2'>delete</a> </td>
     <td><a href='edit.php?id=" . $row['stud_id'] . "&&page=2'>edit</a> </td>
 </tr>
@@ -119,11 +120,11 @@ if (isset($_POST['submit1'])) {
         <select name="select1" id="select1">
             <?php
             include "connection.php";
-            $sql_option="SELECT * FROM class";
-            $sql_option_pre=$db->prepare($sql_option);
+            $sql_option = "SELECT * FROM class";
+            $sql_option_pre = $db->prepare($sql_option);
             $sql_option_pre->execute();
-            while ($row=$sql_option_pre->fetch(PDO::FETCH_ASSOC)){
-                echo "<option value='".$row['class_id']."'>".$row['class_name']."</option>";
+            while ($row = $sql_option_pre->fetch(PDO::FETCH_ASSOC)) {
+                echo "<option value='" . $row['class_id'] . "'>" . $row['class_name'] . "</option>";
             }
             ?>
         </select>
@@ -137,8 +138,21 @@ if (isset($_POST['submit1'])) {
         </tr>
         <?php
         include "connection.php";
-        if (isset($_POST['sub'])){
-            
+        if (isset($_POST['sub'])) {
+            echo "<script>alert('oky');</script>";
+            $id = $_POST['select1'];
+            $sql_show = "SELECT * FROM student WHERE class_id=" . $id;
+            $sql_show = $db->prepare($sql_show);
+            $sql_show->execute();
+            while ($row = $sql_show_pre->fetch(PDO::FETCH_ASSOC)) {
+                echo '
+           <tr>
+        <td>' . $row['name'] . '</td>
+        <td>' . $row['family'] . '</td>
+        <td>' . $row['ave'] . '</td>
+    </tr>   
+             ';
+            }
         }
         ?>
     </table>

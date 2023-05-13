@@ -109,10 +109,39 @@ if (isset($_POST['submit1'])) {
                     ";
                 }
                 ?>
-
-
+            </table>
         </div>
     </div>
+</div>
+<div id="show_list">
+    <form method="post">
+        <label>class_name</label><br/>
+        <select name="select1" id="select1">
+            <?php
+            include "connection.php";
+            $sql_option="SELECT * FROM class";
+            $sql_option_pre=$db->prepare($sql_option);
+            $sql_option_pre->execute();
+            while ($row=$sql_option_pre->fetch(PDO::FETCH_ASSOC)){
+                echo "<option value='".$row['class_id']."'>".$row['class_name']."</option>";
+            }
+            ?>
+        </select>
+        <input type="submit" name="sub" value="select">
+    </form>
+    <table>
+        <tr>
+            <td> name</td>
+            <td>family</td>
+            <td>ave</td>
+        </tr>
+        <?php
+        include "connection.php";
+        if (isset($_POST['sub'])){
+            
+        }
+        ?>
+    </table>
 </div>
 </body>
 </html>

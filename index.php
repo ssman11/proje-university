@@ -91,7 +91,23 @@ if (isset($_POST['submit1'])) {
                     <td>edit</td>
                 </tr>
                 <?php
-                
+                include "connection.php";
+                $query="SELECT * FROM student";
+                $result=$db->prepare($query);
+                $result->execute();
+                while ($row=$result->fetch(PDO::FETCH_ASSOC)){
+                    echo "
+                    <tr>
+    <td>" .$row['class_id']. "</td>
+    <td>" .$row['stud_id']. "</td>
+    <td>" .$row['name']. "</td>
+    <td>" .$row['family']. "</td>
+    <td>" .$row['ave']. "</td>
+    <td><a href='delete.php?id=" . $row['stud_id'] . "&&page=2'>delete</a> </td>
+    <td><a href='edit.php?id=" . $row['stud_id'] . "&&page=2'>edit</a> </td>
+</tr>
+                    ";
+                }
                 ?>
 
 

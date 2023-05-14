@@ -78,7 +78,7 @@ if (isset($_POST['submit1'])) {
                     <input type="text" name="stud_family"/><br/>
                     <label>average</label><br/>
                     <input type="text" name="stud_ave"/><br/>
-                    <input type="submit" name="submit2" value="inser-student"/>
+                    <input type="submit" name="submit1" value="inser-student"/>
                 </fieldset>
             </form>
             <table border="1">

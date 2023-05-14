@@ -1,9 +1,9 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
     <meta charset="utf-8">
-    <title>university database</title>
-    <link href="css/style.css" rel="stylesheet">
+    <title>university database sample</title>
+    <link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
 <?php
@@ -11,7 +11,7 @@ include "connection.php";
 if (isset($_POST['submit'])) {
     $classid = $_POST['txt_classid'];
     $classname = $_POST['txt_class'];
-    $sql = "INSERT INTO class(class_id,class_anme) VALUES ('$classid','classname')";
+    $sql = "INSERT INTO class(class_id,class_anme) VALUES ('$classid','$classname')";
     $sql_pre = $db->prepare($sql);
     $sql_pre->execute();
 }
@@ -29,7 +29,7 @@ if (isset($_POST['submit1'])) {
 <div id="wrapper">
     <div id="row1">
         <div id="row1_col1">
-
+<form action="" method="post">
             <fieldset>
                 <legend>class</legend>
                 <label>class id</label>

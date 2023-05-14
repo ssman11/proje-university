@@ -30,9 +30,9 @@
     <form action="" method="post">
         <fieldset>
             <legend>class</legend>
-                    <label> class</label>
+                    <label> class name</label>
     <input type="text" name="txt_class" value="' . $row['class_name'] . '"/>
-                            <label> class<label>
+                            <label> class id <label>
                                     <input type="text" name="txt_class1" value="' . $row['class_id'] . '"/>
                                     <input type="submit" name="submit" value="edit-class"/>
         </fieldset>
